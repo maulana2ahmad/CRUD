@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CrudAndroid</string>
+    <string name="title_activity_buatbiodata">title_activity_buatbiodata</string>
+    <string name="title_activity_updatebiodata">title_activity_updatebiodata</string>
+    <string name="title_activity_lihatbiodata">title_activity_lihatbiodata</string>
+
+</resources>
