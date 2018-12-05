@@ -9,12 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.mractiveiddev.crudandroid.sql.DataHelper;
 
 public class BuatBiodataActivity extends AppCompatActivity {
     protected Cursor cursor;
     DataHelper dbHelper;
-    Button button1, button2;
+    Button ton1, ton2;
     EditText etext1, etext2, etext3, etext4, etext5;
 
     @Override
@@ -30,15 +29,15 @@ public class BuatBiodataActivity extends AppCompatActivity {
         etext5 = (EditText) findViewById(R.id.editText5);
 
         //Button
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
+        ton1 = (Button) findViewById(R.id.button1);
+        ton2 = (Button) findViewById(R.id.button2);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        ton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("insert into biodata (no, nama, tgl, alamat) value ('"+
+                db.execSQL("insert into biodata (no, nama, tgl,jk, alamat) values ('" +
                         etext1.getText().toString() + "','" +
                         etext2.getText().toString() + "','" +
                         etext3.getText().toString() + "','" +
@@ -49,7 +48,7 @@ public class BuatBiodataActivity extends AppCompatActivity {
                 finish();
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        ton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 

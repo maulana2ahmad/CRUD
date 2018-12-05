@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View arg0) {
-                //TODO Auto Genered method sub
                 Intent intent = new Intent(MainActivity.this, BuatBiodataActivity.class);
                 startActivity(intent);
             }
@@ -83,9 +82,11 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case 2 :
                                 SQLiteDatabase db = dbcenter.getWritableDatabase();
-                                db.execSQL("delete from biodata where name = '" + selection + "'");
+                                db.execSQL("delete from biodata where nama = '"+selection+"'");
                                 RefreshList();
                                 break;
+
+
                         }
                     }
                 });

@@ -8,12 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.mractiveiddev.crudandroid.sql.DataHelper;
 
 public class LihatDataActivity extends AppCompatActivity {
     protected Cursor cursor;
     DataHelper dbHelper;
-    Button buttonlihat;
+    Button ton2;
     TextView text1, text2, text3, text4, text5;
 
     @Override
@@ -28,8 +27,9 @@ public class LihatDataActivity extends AppCompatActivity {
         text4 = (TextView) findViewById(R.id.textView4);
         text5 = (TextView) findViewById(R.id.textView5);
 
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        cursor = db.rawQuery("SELECT * FROM biodata WHERE nama = '" + getIntent().getStringExtra("nama") + "'", null);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM biodata WHERE nama = '" +
+                getIntent().getStringExtra("nama") + "'", null);
         cursor.moveToFirst();
         if (cursor.getCount()>0)
         {
@@ -40,8 +40,8 @@ public class LihatDataActivity extends AppCompatActivity {
             text4.setText(cursor.getString(3).toString());
             text5.setText(cursor.getString(4).toString());
         }
-        buttonlihat = (Button) findViewById(R.id.button1);
-        buttonlihat.setOnClickListener(new View.OnClickListener() {
+        ton2 = (Button) findViewById(R.id.button1);
+        ton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 finish();

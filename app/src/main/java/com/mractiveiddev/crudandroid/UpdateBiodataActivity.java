@@ -9,12 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.mractiveiddev.crudandroid.sql.DataHelper;
 
 public class UpdateBiodataActivity extends AppCompatActivity {
     protected Cursor cursor;
     DataHelper dbHelper;
-    Button btn1, btn2;
+    Button ton1, ton2;
     EditText etext1, etext2, etext3, etext4, etext5;
 
     @Override
@@ -41,26 +40,25 @@ public class UpdateBiodataActivity extends AppCompatActivity {
             etext4.setText(cursor.getString(3).toString());
             etext5.setText(cursor.getString(4).toString());
         }
-        btn1 = (Button) findViewById(R.id.button1);
-        btn2 = (Button) findViewById(R.id.button2);
+        ton1 = (Button) findViewById(R.id.button1);
+        ton2 = (Button) findViewById(R.id.button2);
             //daftar event onClick pada btnsimpan
-        btn1.setOnClickListener(new View.OnClickListener() {
+        ton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 db.execSQL("update biodata set nama='"+
-                    etext2.getText().toString() +"', tgl='" +
-                    etext3.getText().toString() +"', jk='" +
-                    etext4.getText().toString() +"', alamat='" +
-                    etext5.getText().toString() +"', where no='" +
-                    etext1.getText().toString() +"'");
+                        etext2.getText().toString() +"', tgl='" +
+                        etext3.getText().toString() +"', jk='" +
+                        etext4.getText().toString() +"', alamat='" +
+                        etext5.getText().toString() +"' where no='" +
+                        etext1.getText().toString() +"'");
                 Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_LONG).show();
                 MainActivity.ma.RefreshList();
                 finish();
-
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
+        ton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 finish();
